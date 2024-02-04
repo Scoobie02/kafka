@@ -18,6 +18,7 @@
 
 	<modules>
 		<module>publisher</module>
+		<module>consumer</module>
 	</modules>
 
 	<properties>
