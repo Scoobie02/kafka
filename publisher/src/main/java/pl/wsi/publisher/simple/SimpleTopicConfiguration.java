@@ -3,6 +3,7 @@ package pl.wsi.publisher.simple;
 import org.apache.kafka.clients.admin.NewTopic;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.kafka.config.TopicBuilder;
 
 @Configuration
 class SimpleTopicConfiguration {
@@ -10,7 +11,10 @@ class SimpleTopicConfiguration {
 
 	@Bean
 	NewTopic simpleTopic() {
-		return new NewTopic(SIMPLE_TOPIC, 1, (short) 1);
+		return TopicBuilder.name(SIMPLE_TOPIC)
+				.partitions(1)
+				.replicas(1)
+				.build();
 	}
 
 }
